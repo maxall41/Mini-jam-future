@@ -1,0 +1,407 @@
+fileFormatVersion: 2
+guid: b56f89f71264e408a906a54edf0f933f
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1542954400310884167
+    second: small droid-sheet_0
+  - first:
+      213: -1495447429224883147
+    second: small droid-sheet_1
+  - first:
+      213: -5920730018166815167
+    second: small droid-sheet_2
+  - first:
+      213: -3443437228191268908
+    second: small droid-sheet_3
+  - first:
+      213: -527223412361910565
+    second: small droid-sheet_4
+  - first:
+      213: -2589066665176512559
+    second: small droid-sheet_5
+  - first:
+      213: -8464096058756035913
+    second: small droid-sheet_6
+  - first:
+      213: -7790211634976819055
+    second: small droid-sheet_7
+  - first:
+      213: 1452757770060771276
+    second: small droid-sheet_8
+  - first:
+      213: 6998101479206019316
+    second: small droid-sheet_9
+  - first:
+      213: 2348761586201120101
+    second: small droid-sheet_10
+  - first:
+      213: 8069196567761162815
+    second: small droid-sheet_11
+  - first:
+      213: -5425585103006082554
+    second: small droid-sheet_12
+  - first:
+      213: -5963256591381060437
+    second: small droid-sheet_13
+  - first:
+      213: -5740510813656355882
+    second: small droid-sheet_14
+  - first:
+      213: 3801546124383116033
+    second: small droid-sheet_15
+  - first:
+      213: 2224160454773463297
+    second: small droid-sheet_16
+  - first:
+      213: -5796269447696247534
+    second: small droid-sheet_17
+  - first:
+      213: -2169761809544215291
+    second: small droid-sheet_18
+  - first:
+      213: 2876680619736111241
+    second: small droid-sheet_19
+  - first:
+      213: -7637027946430906820
+    second: small droid-sheet_20
+  - first:
+      213: 1213266182830789511
+    second: small droid-sheet_21
+  - first:
+      213: 3181132920595874236
+    second: small droid-sheet_22
+  - first:
+      213: -52582454595724347
+    second: small droid-sheet_23
+  - first:
+      213: -4104878281054963709
+    second: small droid-sheet_24
+  - first:
+      213: 5874954052589698504
+    second: small droid-sheet_25
+  - first:
+      213: -1378094219350098272
+    second: small droid-sheet_26
+  - first:
+      213: 17348135652889398
+    second: small droid-sheet_27
+  - first:
+      213: 5858636289779253630
+    second: small droid-sheet_28
+  - first:
+      213: -3735410920860288607
+    second: small droid-sheet_29
+  - first:
+      213: -3717180512985121059
+    second: small droid-sheet_30
+  - first:
+      213: -5223888399126873573
+    second: small droid-sheet_31
+  - first:
+      213: 6398151956708568183
+    second: small droid-sheet_32
+  - first:
+      213: 1659949319017476384
+    second: small droid-sheet_33
+  - first:
+      213: -1183819165298894100
+    second: small droid-sheet_34
+  - first:
+      213: 4548264363152988794
+    second: small droid-sheet_35
+  - first:
+      213: 1866381391206764561
+    second: small droid-sheet_36
+  - first:
+      213: 2658843431403719272
+    second: small droid-sheet_0
+  - first:
+      213: -5446072797968231913
+    second: small droid-sheet_1
+  - first:
+      213: 2303785579244000158
+    second: small droid-sheet_2
+  - first:
+      213: 1303020243558012619
+    second: small droid-sheet_3
+  - first:
+      213: 1756836400392506022
+    second: small droid-sheet_4
+  - first:
+      213: 8889256530739114192
+    second: small droid-sheet_5
+  - first:
+      213: 793916934422032484
+    second: small droid-sheet_6
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: iPhone
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 8192
+    resizeAlgorithm: 1
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: small droid-sheet_0
+      rect:
+        serializedVersion: 2
+        x: 81
+        y: 76
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a0332830c16e420800000000000000
+      internalID: 2658843431403719272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_1
+      rect:
+        serializedVersion: 2
+        x: 273
+        y: 76
+        width: 21
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7129f2015a9ab64b0800000000000000
+      internalID: -5446072797968231913
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_2
+      rect:
+        serializedVersion: 2
+        x: 465
+        y: 76
+        width: 20
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e93918147c0b8ff10800000000000000
+      internalID: 2303785579244000158
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_3
+      rect:
+        serializedVersion: 2
+        x: 660
+        y: 76
+        width: 17
+        height: 35
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc61b600202451210800000000000000
+      internalID: 1303020243558012619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_4
+      rect:
+        serializedVersion: 2
+        x: 852
+        y: 76
+        width: 17
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6aa0fd5e569816810800000000000000
+      internalID: 1756836400392506022
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_5
+      rect:
+        serializedVersion: 2
+        x: 1043
+        y: 76
+        width: 21
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d0b608a7bbfc5b70800000000000000
+      internalID: 8889256530739114192
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: small droid-sheet_6
+      rect:
+        serializedVersion: 2
+        x: 1235
+        y: 76
+        width: 20
+        height: 37
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4607469de3f840b00800000000000000
+      internalID: 793916934422032484
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
