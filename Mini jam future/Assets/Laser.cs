@@ -27,6 +27,10 @@ public class Laser : MonoBehaviour
 
     private bool IsSecretLaser;
 
+    public bool AttachedToLaser;
+
+    public float InternalLaserTimeout1 = 99999999f;
+
 
 
     // Start is called before the first frame update
@@ -67,16 +71,22 @@ public class Laser : MonoBehaviour
     void Update()
     {
         SecondaryCooldownTimer -= Time.deltaTime;
+        InternalLaserTimeout1 -= Time.deltaTime;
+        if (InternalLaserTimeout1 < 0)
+        {
+            AttachedToLaser = false;
+        }
         //? update laser line
         LineRenderer l = gameObject.GetComponent<LineRenderer>();
 
         List<Vector3> pos = new List<Vector3>();
         pos.Add(LaserEmitterPoint.transform.position);
-        if (gameObject.name.Contains("SecretLaser") == true)
+        if (gameObject.name.Contains("SecretLaser") == true && AttachedToLaser == false)
         {
             pos.Add(new Vector3(LaserEmitterPoint.transform.position.x - AP, LaserEmitterPoint.transform.position.y));
-        } else if (AttachedToGlitch == true)
+        } else if (AttachedToGlitch == true || AttachedToLaser == true)
         {
+            Debug.Log("Attached " + AP);
             pos.Add(new Vector3(AP, LaserEmitterPoint.transform.position.y));
         } else
         {
@@ -115,7 +125,13 @@ public class Laser : MonoBehaviour
                     AP = hit.collider.gameObject.transform.position.x;
                     AttachedToGlitch = true;
                     hit.collider.gameObject.SendMessage("BeingHitByLaser",gameObject);
-                }
+                } else if (hit.collider.gameObject.tag == "LaserDetector")
+            {
+                AttachedToLaser = true;
+                AP = hit.collider.gameObject.transform.position.x;
+                hit.collider.gameObject.SendMessage("Connected");
+                InternalLaserTimeout1 = 0.2f;
+            }
             }
             else
             {
