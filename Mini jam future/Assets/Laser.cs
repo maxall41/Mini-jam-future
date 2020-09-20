@@ -22,6 +22,8 @@ public class Laser : MonoBehaviour {
 
     public bool AttachedToGlitch = false;
 
+    public GameObject AttachedGlitch;
+
     private bool IsSecretLaser;
 
     public bool AttachedToLaser;
@@ -31,6 +33,8 @@ public class Laser : MonoBehaviour {
     private float FlipTimeOut;
 
     public bool FlipRaycast = false;
+
+    private float GlitchTimeOut = 999999999f;
 
     public float invincibility = -999999999f;
 
@@ -51,11 +55,16 @@ public class Laser : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+        GlitchTimeOut -= Time.deltaTime;
         FlipTimeOut -= Time.deltaTime;
         invincibility -= Time.deltaTime;
         FlipTimeOut -= Time.deltaTime;
         SecondaryCooldownTimer -= Time.deltaTime;
         InternalLaserTimeout1 -= Time.deltaTime;
+        if (GlitchTimeOut < 0) {
+            AttachedToGlitch = false;
+            AttachedGlitch = null;
+        }
         if (InternalLaserTimeout1 < 0) {
             AttachedToLaser = false;
         }
@@ -64,9 +73,9 @@ public class Laser : MonoBehaviour {
 
         List<Vector3> pos = new List<Vector3> ();
         pos.Add (LaserEmitterPoint.transform.position);
-        if (AttachedToLaser == false && FlipRaycast == false) {
+        if (AttachedToLaser == false && FlipRaycast == false && AttachedToGlitch == false) {
             pos.Add (new Vector3 (LaserEmitterPoint.transform.position.x + AP, LaserEmitterPoint.transform.position.y));
-        } else if (AttachedToLaser == false && FlipRaycast == true) {
+        } else if (AttachedToLaser == false && FlipRaycast == true && AttachedToGlitch == false) {
             pos.Add (new Vector3 (LaserEmitterPoint.transform.position.x - AP, LaserEmitterPoint.transform.position.y));
         } else {
             pos.Add (new Vector3 (AP, LaserEmitterPoint.transform.position.y));
@@ -99,6 +108,11 @@ public class Laser : MonoBehaviour {
             else if (cooldown < 0) {
                 try {
                     Vector3Int cellPosition = gridLayout.WorldToCell (hit.point);
+                    if (tilemap.GetTile (cellPosition) == null) {
+                        cellPosition = new Vector3Int (cellPosition.x - 1, cellPosition.y, cellPosition.z);
+                    } else {
+                        cellPosition = new Vector3Int (cellPosition.x, cellPosition.y, cellPosition.z);
+                    }
                     tilemap.SetTile (cellPosition, null);
                     cooldown = LaserCooldownTime;
                 } catch {
@@ -108,8 +122,10 @@ public class Laser : MonoBehaviour {
             }
             //? hit glitch
             if (hit.collider.gameObject.tag == "glitch") {
+                GlitchTimeOut = 0.2f;
                 AP = hit.collider.gameObject.transform.position.x;
                 AttachedToGlitch = true;
+                AttachedGlitch = hit.collider.gameObject;
                 hit.collider.gameObject.SendMessage ("BeingHitByLaser", gameObject);
             }
             //? hit laser detector

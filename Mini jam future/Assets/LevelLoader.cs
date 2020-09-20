@@ -18,7 +18,9 @@ public class LevelLoader : MonoBehaviour {
     }
 
     public void NextLevel () {
+        GlitchText.text = "0 GLITCHES";
         LevelIndexPointer++;
+        Destroy (LastLevel);
         LoadLevel ();
     }
 

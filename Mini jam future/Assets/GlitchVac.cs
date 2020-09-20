@@ -92,6 +92,7 @@ public class GlitchVac : MonoBehaviour {
                 if (int.Parse (finalresult) > 0) {
                     if (facingRight == true) {
                         GameObject NewGlitch = Instantiate (glitch, new Vector3 (transform.position.x + 1.5f, transform.position.y, 0), Quaternion.identity);
+                        NewGlitch.transform.SetParent (GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().LastLevel.transform);
                         Rigidbody2D rb = NewGlitch.GetComponent<Rigidbody2D> ();
                         rb.velocity = new Vector2 (1 * speed, rb.velocity.y);
                         rb = null;

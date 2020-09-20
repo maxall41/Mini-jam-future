@@ -16,14 +16,18 @@ public class glitch : MonoBehaviour {
     void OnCollisionEnter2D (Collision2D col) {
         Debug.Log ("col");
         if (col.gameObject.tag == "player") {
-            if (gameObject.transform.parent.gameObject.GetComponent<LaserTransport> ().AttachedLaser != null && gameObject.transform.parent.gameObject.tag == "glitch") {
-                col.gameObject.SendMessage ("RestartLevel");
-            }
-            GameObject[] glitches = GameObject.FindGameObjectsWithTag ("glitch");
-            Debug.Log (glitches);
-            if (gameObject.transform.parent.gameObject.tag != "NONACTIVEGLITCH") {
-                Vector3 GlitchTeleportPos = GetClosest (glitches).position;
-                col.gameObject.transform.position = new Vector3 (GlitchTeleportPos.x - 2f, GlitchTeleportPos.y, 0);
+            try {
+                if (gameObject.transform.parent.gameObject.GetComponent<LaserTransport> ().AttachedLaser != null && gameObject.transform.parent.gameObject.tag == "glitch") {
+                    col.gameObject.SendMessage ("RestartLevel");
+                }
+                GameObject[] glitches = GameObject.FindGameObjectsWithTag ("glitch");
+                Debug.Log (glitches);
+                if (gameObject.transform.parent.gameObject.tag != "NONACTIVEGLITCH" && glitches.Length > 1) {
+                    Vector3 GlitchTeleportPos = GetClosest (glitches).position;
+                    col.gameObject.transform.position = new Vector3 (GlitchTeleportPos.x - 2f, GlitchTeleportPos.y, 0);
+                }
+            } catch {
+                Debug.LogWarning ("Glitch underflow");
             }
         } else if (col.gameObject.tag == "Laser") {
             GameObject[] glitches = GameObject.FindGameObjectsWithTag ("glitch");
