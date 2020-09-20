@@ -73,6 +73,9 @@ Material:
     - _BaseColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0.8980392, g: 0.3647059, b: 0.6745098, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _InsideFarColor: {r: 0.8980392, g: 0.3647059, b: 0.6745098, a: 1}
+    - _InsideNearColor: {r: 0.8980392, g: 0.3647059, b: 0.6745098, a: 1}
+    - _OutsideColor: {r: 0.9339297, g: 1, b: 0, a: 1}
     - _SpecColor: {r: 0.2, g: 0.2, b: 0.2, a: 1}
 --- !u!114 &4963630925115294811
 MonoBehaviour:
