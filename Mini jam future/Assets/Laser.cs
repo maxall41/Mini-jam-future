@@ -16,8 +16,6 @@ public class Laser : MonoBehaviour {
 
     private float AP;
 
-    public bool Flip = false;
-
     private float SecondaryCooldownTimer;
 
     private Vector2 direction;
@@ -66,13 +64,12 @@ public class Laser : MonoBehaviour {
 
         List<Vector3> pos = new List<Vector3> ();
         pos.Add (LaserEmitterPoint.transform.position);
-        if (gameObject.name.Contains ("SecretLaser") == true && AttachedToLaser == false && FlipRaycast == false) {
-            pos.Add (new Vector3 (LaserEmitterPoint.transform.position.x - AP, LaserEmitterPoint.transform.position.y));
-        } else if (AttachedToGlitch == true || AttachedToLaser == true) {
-            Debug.Log ("Attached " + AP);
-            pos.Add (new Vector3 (AP, LaserEmitterPoint.transform.position.y));
-        } else {
+        if (AttachedToLaser == false && FlipRaycast == false) {
             pos.Add (new Vector3 (LaserEmitterPoint.transform.position.x + AP, LaserEmitterPoint.transform.position.y));
+        } else if (AttachedToLaser == false && FlipRaycast == true) {
+            pos.Add (new Vector3 (LaserEmitterPoint.transform.position.x - AP, LaserEmitterPoint.transform.position.y));
+        } else {
+            pos.Add (new Vector3 (AP, LaserEmitterPoint.transform.position.y));
         }
         l.startWidth = 0.3f;
         l.endWidth = 0.3f;
@@ -81,7 +78,7 @@ public class Laser : MonoBehaviour {
         //? run raycasting code
         cooldown -= Time.deltaTime;
         RaycastHit2D hit;
-        if (gameObject.name.Contains ("SecretLaser") == true && FlipRaycast == false) {
+        if (FlipRaycast == false) {
             hit = Physics2D.Raycast (LaserEmitterPoint.position, direction, AP, WhatLaserCanHit);
         } else {
             hit = Physics2D.Raycast (LaserEmitterPoint.position, -direction, AP, WhatLaserCanHit);
@@ -91,11 +88,7 @@ public class Laser : MonoBehaviour {
             //? hit player
             if (hit.collider.gameObject.tag == "player") {
                 if (GameObject.Find ("GlitchVac").GetComponent<GlitchVac> ().JCGT > 0 && FlipTimeOut < 0) {
-                    if (GameObject.Find ("Player").GetComponent<PlayerMovement> ().facingRight == true) {
-                        FlipRaycast = true;
-                    } else {
-                        ResetVectors ();
-                    }
+                    FlipRaycast = true;
                     invincibility = 1f;
                     FlipTimeOut = 1f;
                 } else if (invincibility < 0) {
@@ -104,9 +97,14 @@ public class Laser : MonoBehaviour {
             }
             //? hit tilemap
             else if (cooldown < 0) {
-                Vector3Int cellPosition = gridLayout.WorldToCell (hit.point);
-                tilemap.SetTile (cellPosition, null);
-                cooldown = LaserCooldownTime;
+                try {
+                    Vector3Int cellPosition = gridLayout.WorldToCell (hit.point);
+                    tilemap.SetTile (cellPosition, null);
+                    cooldown = LaserCooldownTime;
+                } catch {
+                    gridLayout = GameObject.Find ("Grid").GetComponent<Grid> ();
+                    tilemap = GameObject.Find ("Tilemap").GetComponent<Tilemap> ();
+                }
             }
             //? hit glitch
             if (hit.collider.gameObject.tag == "glitch") {
@@ -122,20 +120,14 @@ public class Laser : MonoBehaviour {
                 InternalLaserTimeout1 = 0.2f;
             }
             //? hit nothing
-        } else {
-            Debug.Log ("Hit nothing by casting from " + gameObject.name);
-            if (Flip == true) {
-                direction = new Vector2 (-1, 0);
-                Flip = false;
-            }
         }
     }
 
-    void ResetVectors () {
-        Debug.Log ("resetting vectors");
-        FlipRaycast = false;
-        direction *= -1;
-        AP = LaserLength;
-    }
+    // void ResetVectors () {
+    //     Debug.Log ("resetting vectors");
+    //     FlipRaycast = false;
+    //     // direction *= -1;
+    //     // AP = LaserLength;
+    // }
 
 }
