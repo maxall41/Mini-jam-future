@@ -85,6 +85,7 @@ public class PlayerMovement : MonoBehaviour
 
     void RestartLevel()
     {
+        //TODO: REPLACE THIS CODE TO WORK WITH THE NEW LEVEL LOADER
         Scene scene = SceneManager.GetActiveScene();
         SceneManager.LoadScene(scene.name);
     }

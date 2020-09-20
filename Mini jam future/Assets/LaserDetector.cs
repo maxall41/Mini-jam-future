@@ -22,11 +22,20 @@ public class LaserDetector : MonoBehaviour
             Powered = false;
         }
         gameObject.GetComponent<Animator>().SetBool("IsOnline", Powered);
+        gameObject.transform.GetChild(2).gameObject.SetActive(!Powered);
     }
 
      void Connected()
     {
         Powered = true;
         InternalTimer = 0.2f;
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "player" && Powered == true)
+        {
+            GameObject.Find("LevelManager").SendMessage("NextLevel");
+        }
     }
 }

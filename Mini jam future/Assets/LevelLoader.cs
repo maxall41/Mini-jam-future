@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class LevelLoader : MonoBehaviour
 {
     public GameObject[] levels;
@@ -19,13 +19,14 @@ public class LevelLoader : MonoBehaviour
 
     private void LoadLevel()
     {
-        if (LevelIndexPointer <= levels.Length)
+        if (LevelIndexPointer < levels.Length)
         {
             Instantiate(levels[LevelIndexPointer], new Vector3(0, 0, 0), Quaternion.identity);
             LevelIndexPointer++;
         } else
         {
             Debug.LogWarning("NO MORE LEVELS LEFT!");
+            SceneManager.LoadScene("ThanksForPlaying");
         }
 
     }
