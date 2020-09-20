@@ -70,10 +70,7 @@ public class PlayerMovement : MonoBehaviour {
     }
 
     void RestartLevel () {
-        //TODO: REPLACE THIS CODE TO WORK WITH THE NEW LEVEL LOADER
-        Scene scene = SceneManager.GetActiveScene ();
-        Debug.Log ("Death");
-        // SceneManager.LoadScene (scene.name);
+        GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().RestartLevel ();
     }
 
 }

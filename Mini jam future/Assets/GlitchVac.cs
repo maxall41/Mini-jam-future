@@ -1,13 +1,16 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Text.RegularExpressions;
 using TMPro;
 using UnityEngine;
 
 public class GlitchVac : MonoBehaviour {
-    private Vector2 range = new Vector2 (2.3f, 0.3f);
+    public Vector2 range = new Vector2 (2.3f, 0.3f);
     private Vector2 Position;
 
     public float speed;
+
+    public AudioSource vacuamSFX;
 
     public Vector2 OffsetPosition;
 
@@ -24,6 +27,8 @@ public class GlitchVac : MonoBehaviour {
     private bool MovingToPlayer = false;
 
     private float InternalCooldown = 0.2f;
+
+    private bool VacTest = false;
 
     public bool SuckerHasBeenActivated = false;
 
@@ -57,6 +62,10 @@ public class GlitchVac : MonoBehaviour {
         GlitchCooldown -= Time.deltaTime;
         //? glitch suck in
         if (Input.GetMouseButton (0)) {
+            if (VacTest == false) {
+                vacuamSFX.Play ();
+                VacTest = true;
+            }
             InternalCooldown = 0.2f;
             SuckerHasBeenActivated = true;
             GlitchVacOn = true;
@@ -64,13 +73,12 @@ public class GlitchVac : MonoBehaviour {
             int i = 0;
             for (i = 0; i < Objects.Length; i++) {
                 GameObject Object = Objects[i].gameObject;
-
+                float step = speed * Time.deltaTime;
                 if (Object.tag == "glitch" || Object.tag == "NONACTIVEGLITCH") {
                     TempHolder1_CanceledPullingGlitch = Object;
 
                     Object.tag = "NONACTIVEGLITCH";
 
-                    float step = speed * Time.deltaTime;
                     // move sprite towards the target location
                     Object.transform.position = Vector2.MoveTowards (Object.transform.position, transform.position, step);
                     MovingToPlayer = true;
@@ -80,7 +88,8 @@ public class GlitchVac : MonoBehaviour {
             //? glitch expel out
             if (Input.GetMouseButtonDown (1)) {
                 GlitchVacOn = true;
-                if (int.Parse (GlitchText.text) > 0) {
+                var finalresult = Regex.Match (GlitchText.text, @"\d+").Value;
+                if (int.Parse (finalresult) > 0) {
                     if (facingRight == true) {
                         GameObject NewGlitch = Instantiate (glitch, new Vector3 (transform.position.x + 1.5f, transform.position.y, 0), Quaternion.identity);
                         Rigidbody2D rb = NewGlitch.GetComponent<Rigidbody2D> ();
@@ -88,15 +97,19 @@ public class GlitchVac : MonoBehaviour {
                         rb = null;
                     } else {
                         GameObject NewGlitch = Instantiate (glitch, new Vector3 (transform.position.x - 1.5f, transform.position.y, 0), Quaternion.identity);
+                        NewGlitch.transform.SetParent (GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().LastLevel.transform);
                         Rigidbody2D rb = NewGlitch.GetComponent<Rigidbody2D> ();
                         rb.velocity = new Vector2 (-1 * speed, rb.velocity.y);
                         rb = null;
                     }
                     JCGT = 0.5f;
                     JCGT_tick = true;
-                    GlitchText.text = (int.Parse (GlitchText.text) - 1).ToString ();
+
+                    GlitchText.text = (((int.Parse (finalresult) - 1).ToString ()) + " GLITCHES");
                 }
             } else {
+                vacuamSFX.Stop ();
+                VacTest = false;
                 GlitchVacOn = false;
             }
         }
@@ -123,7 +136,10 @@ public class GlitchVac : MonoBehaviour {
         if (col.gameObject.tag == "NONACTIVEGLITCH" && GlitchVacOn == true && GlitchCooldown < 0) {
             col.gameObject.SendMessage ("CutLaser"); //? disconnect lasers
             GlitchCooldown = 0.2f;
-            GlitchText.text = (int.Parse (GlitchText.text) + 1).ToString ();
+
+            var finalresult = Regex.Match (GlitchText.text, @"\d+").Value;
+
+            GlitchText.text = (((int.Parse (finalresult) + 1).ToString ()) + " GLITCHES");
             Destroy (col.gameObject);
         }
     }

@@ -84,7 +84,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1862779700847911545
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LaserEmitterPoint: {fileID: 1862779701005461437}
+  cooldown: 0.8
   LaserCooldownTime: 0.8
   WhatLaserCanHit:
     serializedVersion: 2
@@ -105,9 +106,13 @@ MonoBehaviour:
   LaserEnd: 0
   LaserLength: 20
   Flip: 1
+  tile: {fileID: 0}
   AttachedToGlitch: 0
   AttachedToLaser: 0
   InternalLaserTimeout1: 100000000
+  FlipRaycast: 0
+  PermFlip: 0
+  invincibility: -1e+9
 --- !u!120 &1862779700847911544
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -123,6 +128,7 @@ LineRenderer:
   m_LightProbeUsage: 0
   m_ReflectionProbeUsage: 0
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -316,6 +322,7 @@ SpriteRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:

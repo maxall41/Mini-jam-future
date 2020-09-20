@@ -8,6 +8,7 @@ TagManager:
   - player
   - NONACTIVEGLITCH
   - LaserDetector
+  - Laser
   layers:
   - Default
   - TransparentFX
@@ -22,7 +23,7 @@ TagManager:
   - GlitchDetector
   - GlitchTeleport
   - Laser
-  - 
+  - NoGlitchArea
   - 
   - 
   - 
