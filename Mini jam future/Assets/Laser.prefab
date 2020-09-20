@@ -104,7 +104,7 @@ MonoBehaviour:
     m_Bits: 769
   LaserEnd: 0
   LaserLength: 20
-  Flip: 0
+  Flip: 1
   AttachedToGlitch: 0
   AttachedToLaser: 0
   InternalLaserTimeout1: 100000000
