@@ -34,7 +34,7 @@ public class LevelLoader : MonoBehaviour {
 
     }
 
-    public void RestartLevel () {
+    public void RebootLevel2 () {
         GlitchText.text = "0 GLITCHES";
         Destroy (LastLevel);
         LoadLevel ();

@@ -101,7 +101,7 @@ public class Laser : MonoBehaviour {
                     invincibility = 1f;
                     FlipTimeOut = 1f;
                 } else if (invincibility < 0) {
-                    hit.collider.gameObject.SendMessage ("RestartLevel");
+                    GameObject.Find ("LevelManager").SendMessage ("RebootLevel2");
                 }
             }
             //? hit tilemap

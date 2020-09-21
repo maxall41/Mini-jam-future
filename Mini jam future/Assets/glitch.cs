@@ -18,13 +18,14 @@ public class glitch : MonoBehaviour {
         if (col.gameObject.tag == "player") {
             try {
                 if (gameObject.transform.parent.gameObject.GetComponent<LaserTransport> ().AttachedLaser != null && gameObject.transform.parent.gameObject.tag == "glitch") {
-                    col.gameObject.SendMessage ("RestartLevel");
+                    // GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().RebootLevel ();
                 }
                 GameObject[] glitches = GameObject.FindGameObjectsWithTag ("glitch");
                 Debug.Log (glitches);
                 if (gameObject.transform.parent.gameObject.tag != "NONACTIVEGLITCH" && glitches.Length > 1) {
                     Vector3 GlitchTeleportPos = GetClosest (glitches).position;
                     col.gameObject.transform.position = new Vector3 (GlitchTeleportPos.x - 2f, GlitchTeleportPos.y, 0);
+                    GameObject.Find ("LevelManager").GetComponent<GlobalSoundPlayer> ().PlayTeleportSFX ();
                 }
             } catch {
                 Debug.LogWarning ("Glitch underflow");

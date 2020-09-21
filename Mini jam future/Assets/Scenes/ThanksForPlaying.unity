@@ -482,7 +482,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Music By @Blorp
+  m_text: Music By @Yoorp
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 2716d9966f4af4f6db41cdc81b7f31a2, type: 2}
   m_sharedMaterial: {fileID: -8910430277264832262, guid: 2716d9966f4af4f6db41cdc81b7f31a2,

@@ -41,14 +41,6 @@ public class PlayerMovement : MonoBehaviour {
         } else if (facingRight == true && moveInput < 0) {
             Flip ();
         }
-        if (Input.GetKeyDown (KeyCode.Space)) {
-            JumpPressedRemember = JumpRememberTime;
-        }
-        if ((JumpPressedRemember > 0) && isGrounded == true) {
-            JumpPressedRemember = 0;
-            rb.velocity = Vector2.up * jumpForce;
-            jump.Play ();
-        }
     }
 
     void Update () {
@@ -67,8 +59,18 @@ public class PlayerMovement : MonoBehaviour {
         } else {
             gameObject.GetComponent<Animator> ().SetBool ("IsWalking", false);
         }
+        if (Input.GetKeyDown (KeyCode.Space)) {
+            JumpPressedRemember = JumpRememberTime;
+        }
+        if ((JumpPressedRemember > 0) && isGrounded == true) {
+            rb.velocity = Vector2.up * jumpForce;
+            jump.Play ();
+            JumpPressedRemember = 0;
+        }
         InternalCooldown -= Time.deltaTime;
-        JumpPressedRemember -= Time.deltaTime;
+        if (JumpPressedRemember > 0) {
+            JumpPressedRemember -= Time.deltaTime;
+        }
     }
 
     void Flip () {
@@ -77,10 +79,6 @@ public class PlayerMovement : MonoBehaviour {
         Scaler.x *= -1;
         transform.localScale = Scaler;
         GameObject.Find ("GlitchVac").GetComponent<GlitchVac> ().FlipGlitchVac ();
-    }
-
-    void RestartLevel () {
-        GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().RestartLevel ();
     }
 
 }

@@ -4,6 +4,6 @@ using UnityEngine;
 
 public class Restart : MonoBehaviour {
     public void RestartLevel () {
-        GameObject.Find ("Player").SendMessage ("RestartLevel");
+        GameObject.Find ("LevelManager").GetComponent<LevelLoader> ().RebootLevel2 ();
     }
 }
