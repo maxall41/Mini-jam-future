@@ -11,6 +11,6 @@ public class cursor : MonoBehaviour {
     }
 
     void Update () {
-        gameObject.transform.position = new Vector3 (cam.ScreenToWorldPoint (Input.mousePosition).x, cam.ScreenToWorldPoint (Input.mousePosition).y, 0);
+        gameObject.transform.position = new Vector3 (cam.ScreenToWorldPoint (Input.mousePosition).x, cam.ScreenToWorldPoint (Input.mousePosition).y, -10);
     }
 }
