@@ -30,6 +30,7 @@ public class LaserDetector : MonoBehaviour {
     void OnTriggerEnter2D (Collider2D col) {
         if (col.gameObject.tag == "player" && Powered == true && Activated == false) {
             Activated = true;
+            GameObject.Find ("LevelManager").GetComponent<GlobalSoundPlayer> ().PlayTeleportSFX ();
             GameObject.Find ("LevelManager").SendMessage ("NextLevel");
         }
     }

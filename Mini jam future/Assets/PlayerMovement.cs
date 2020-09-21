@@ -8,11 +8,13 @@ public class PlayerMovement : MonoBehaviour {
     public float jumpForce;
     private float moveInput;
 
+    public AudioSource step;
+
     private Rigidbody2D rb;
 
     public bool facingRight = true;
 
-    private bool isGrounded;
+    public bool isGrounded;
     public Transform groundCheck;
     public float checkRadius;
     public LayerMask whatIsGround;
@@ -39,18 +41,6 @@ public class PlayerMovement : MonoBehaviour {
         } else if (facingRight == true && moveInput < 0) {
             Flip ();
         }
-    }
-
-    void Update () {
-        if (moveInput > 0) {
-            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", true);
-        } else if (moveInput < 0) {
-            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", true);
-        } else {
-            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", false);
-        }
-        InternalCooldown -= Time.deltaTime;
-        JumpPressedRemember -= Time.deltaTime;
         if (Input.GetKeyDown (KeyCode.Space)) {
             JumpPressedRemember = JumpRememberTime;
         }
@@ -59,6 +49,26 @@ public class PlayerMovement : MonoBehaviour {
             rb.velocity = Vector2.up * jumpForce;
             jump.Play ();
         }
+    }
+
+    void Update () {
+        if (moveInput > 0) {
+            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", true);
+            if (isGrounded == true && step.isPlaying == false) {
+                step.pitch = Random.Range (0.8f, 1.0f);
+                step.Play ();
+            }
+        } else if (moveInput < 0) {
+            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", true);
+            if (isGrounded == true && step.isPlaying == false) {
+                step.pitch = Random.Range (0.8f, 1.0f);
+                step.Play ();
+            }
+        } else {
+            gameObject.GetComponent<Animator> ().SetBool ("IsWalking", false);
+        }
+        InternalCooldown -= Time.deltaTime;
+        JumpPressedRemember -= Time.deltaTime;
     }
 
     void Flip () {

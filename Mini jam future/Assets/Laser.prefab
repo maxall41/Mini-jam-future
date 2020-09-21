@@ -98,20 +98,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   LaserEmitterPoint: {fileID: 1862779701005461437}
-  cooldown: 0.8
   LaserCooldownTime: 0.8
   WhatLaserCanHit:
     serializedVersion: 2
     m_Bits: 769
   LaserEnd: 0
-  LaserLength: 20
-  Flip: 1
-  tile: {fileID: 0}
+  LaserLength: 10
   AttachedToGlitch: 0
+  AttachedGlitch: {fileID: 0}
   AttachedToLaser: 0
   InternalLaserTimeout1: 100000000
   FlipRaycast: 0
-  PermFlip: 0
   invincibility: -1e+9
 --- !u!120 &1862779700847911544
 LineRenderer:
